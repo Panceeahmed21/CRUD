@@ -5,7 +5,7 @@ var productCat = document.getElementById("productCat");
 var productDesc = document.getElementById("productDesc");
 var addProductBtn = document.getElementById("addProductBtn");
 var updateProductBtn = document.getElementById("updateProductBtn");
-var temVar; //temporary  variable
+var temVar; 
 var productListKey = "productListkey"
 
 var productList = [];
@@ -41,7 +41,7 @@ function displayProducts(list) {
 <td>${list[i].newName ? list[i].newName : list[i].name}</td>
 <td>${list[i].price}</td>
 <td>${list[i].category}</td>
-<td>${list[i].description}</td>
+<td class="max-width">${list[i].description}</td>
 <td><button class="btn btn-warning btn-sm" onclick="getUpdatedData(${i})"> Update</button></td>
 <td><button class="btn btn-danger btn-sm" onclick="deleteProducts(${i})" > Delete</button></td>
 </tr>`
@@ -153,7 +153,7 @@ function validateProductCategory(){
 }
 
 function validateProductDescription(){
-     var regex =/^[A-Za-z]{250,}$/gmi
+     var regex =/^[A-Za-z ]{20,}$/gmi
     if (regex.test(productDesc.value) == true) {
         document.getElementById("wrongDesc").classList.add("d-none");
         productDesc.style.border="none"
